@@ -2,4 +2,5 @@ streamlit
 pandas
 numpy
 mysql-connector-python
-distutils
+plotly-express
+matplotlib
