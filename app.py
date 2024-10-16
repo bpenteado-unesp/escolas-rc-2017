@@ -9,9 +9,13 @@ st.markdown("Primeiro *texto* **texto2** :rainbow[colors]")
 st.sidebar.header("Cabeçalho sidebar")
 st.sidebar.radio("radiobutton", [1,2])
 
-conn = mysql.connector.connect(host="localhost"
-                               , user="bruno", password="1234"
-                               , port=3306, db="labbd"
+#conn = mysql.connector.connect(host="localhost"
+#                               , user="bruno", password="1234"
+#                               , port=3306, db="labbd"
+#                               , auth_plugin='mysql_native_password')
+conn = mysql.connector.connect(host=st.secrets["DB_HOST"]
+                               , user=st.secrets["DB_USERNAME"], password=st.secrets["DB_PASSWORD"]
+                               , port=st.secrets["DB_PORT"], db=st.secrets["DB_NAME"]
                                , auth_plugin='mysql_native_password')
 cursor = conn.cursor()
 
@@ -52,4 +56,4 @@ st.write(st.session_state['escolas'])
 #st.write(st.session_state['escolas'])
 
 ###### SECRETS
-st.write("Segredo: " + st.secrets['db_username'])
+st.write("Segredo: " + st.secrets['DB_USERNAME'])
